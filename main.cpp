@@ -9,12 +9,13 @@ using namespace std;
 int main(int argc, char *argv[]) {
     if (argc > 1) {
         Parent parent = Parent(argv[2]);
-        if (argv[1] == "c") {
-            cout << "\nCompress\n";
+        cout << "Type: " << argv[1] << '\n' << argv[2] << '\n';
+        if (strcmp(argv[1], "c") == 0) {
+            cout << "Compress\n" << argv[3] << '\n' << argv[4] << '\n';
             Child child = Child(argv[3]);
             child.save(argv[4], parent);
         } else {
-            cout << "\nDecompress\n";
+            cout << "Decompress\n" << argv[3] << '\n' << argv[4] << '\n';
             Decompress decompress = Decompress(argv[3]);
             decompress.start(argv[4], parent);
         }

@@ -1,5 +1,14 @@
 # Delta encoding
 
+## Test
+```shell
+./cmake-build-release/delta c ../test.txt ../test2.txt ../out.compress
+```
+
+## Build
+```shell
+cmake --build "./cmake-build-release" --target delta -- -j 6
+```
 ## Header File Compress
 
 ### Tamanho
