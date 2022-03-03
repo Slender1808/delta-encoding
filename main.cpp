@@ -6,16 +6,19 @@
 
 using namespace std;
 
-int main() {
-    Parent parent = Parent("../test.txt");
-
-    cout << "\nChild\n";
-    Child child = Child("../test2.txt");
-    child.save("../out.compress",parent);
-
-    cout << "\nDec\n";
-    Decompress decompress = Decompress("../out.compress");
-    decompress.start("../out",parent);
-
-    return 0;
+int main(int argc, char *argv[]) {
+    if (argc > 1) {
+        Parent parent = Parent(argv[2]);
+        if (argv[1] == "c") {
+            cout << "\nCompress\n";
+            Child child = Child(argv[3]);
+            child.save(argv[4], parent);
+        } else {
+            cout << "\nDecompress\n";
+            Decompress decompress = Decompress(argv[3]);
+            decompress.start(argv[4], parent);
+        }
+        return 0;
+    }
+    return 1;
 }
